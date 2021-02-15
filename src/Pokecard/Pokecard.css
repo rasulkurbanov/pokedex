@@ -3,7 +3,7 @@
   transition: 0.3s;
   border-radius: 5px;
   width: 250px;
-  height: 350px;
+  height: 300px;
   margin: 15px auto;
   background-color: darkgray;
   text-align: center;
@@ -14,7 +14,7 @@
 }
 
 img {
-  width: 200px;
+  width: 150px;
 }
 
 .poke_name {

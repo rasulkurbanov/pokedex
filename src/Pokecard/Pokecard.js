@@ -1,8 +1,23 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import './Pokecard.css'
 
 function Pokecard(props) {
   const url2 = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/'
+
+  let firstGroup = 0
+  let secondGroup = 0
+
+
+  for(let i=0; i<props.pokemons.length; i++) {
+    if(i <= (props.pokemons.length / 2) - 1) {
+      firstGroup += props.pokemons[i].base_experience
+    } 
+    else {
+      secondGroup += props.pokemons[i].base_experience
+    }
+  }
+
+
   return (
     props.pokemons.map((poke) => {
       return (
@@ -23,7 +38,7 @@ function Pokecard(props) {
               : 
               null
           }
-            alt="description" style={{ width: "200px" }} />
+            alt="description" />
           <div className="container">
             <p>Type: {poke.type}</p>
             <p>EXP: {poke.base_experience}</p>
@@ -32,6 +47,7 @@ function Pokecard(props) {
       )
     })
   )
+
 }
 export default Pokecard
 
