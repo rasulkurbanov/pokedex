@@ -3,5 +3,6 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-content: space-around;
+  padding: 10px 60px;
 }
 

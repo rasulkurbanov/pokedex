@@ -1,55 +1,26 @@
-import { pokes } from "./pokes";
+import pokes from "./pokes";
 import Pokecard from './Pokecard/Pokecard'
 import './App.css'
 
 
 function App() {
-  const url = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'
+  // const url = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'
+  // const url2 = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/'
 
-  let newArr = []
-  let newArr2 = []
+  let newArr1 = []
+  let newArr2 = [...pokes]
 
-  for (let i = Math.floor(Math.random() * pokes.length); i < pokes.length; i++) {
-    if (newArr.length <= pokes.length / 2) {
-      newArr.push(pokes[i])
-    }
-    else {
-      newArr2.push(pokes[i])
-    }
+  while (newArr1.length < newArr2.length) {
+    let randomIndex = Math.floor(Math.random() * newArr2.length)
+    let randomPokemon = newArr2.splice(randomIndex, 1)[0]
+    newArr1.push(randomPokemon)
   }
 
   return (
-  newArr.length === 4 && newArr2.length === 4 ?
-      <div className="App">
-        {
-          newArr.map((poke) => {
-            return (
-              <Pokecard
-                name={poke.name}
-                img={url + poke.id + '.png'}
-                experience={poke.base_experience}
-                type={poke.type}
-                key={poke.id}
-              />
-            )
-          })
-        }
-        <br />
-        {
-          newArr2.map((poke) => {
-            return (
-              <Pokecard
-                name={poke.name}
-                img={url + poke.id + '.png'}
-                experience={poke.base_experience}
-                type={poke.type}
-                key={poke.id}
-              />
-            )
-          })
-        }
-      </div>
-  : "fu*k"
+    <div className="App">
+      <Pokecard pokemons={newArr1}/>
+      <Pokecard pokemons={newArr2}/>
+    </div>
     )
   }
 

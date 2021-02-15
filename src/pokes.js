@@ -10,19 +10,5 @@ const pokes = [
 ]
 
 
-let newArr = []
-let newArr2 = []
 
-for (let i = Math.floor(Math.random() * pokes.length); i <= pokes.length; i++) {
-  if(newArr.length <= pokes.length/2) {
-    newArr.push(pokes[i])
-  }
-  else{
-    newArr2.push(pokes[i])
-  }
-}
-
-
-
-
-export {newArr, newArr2, pokes}
+export default pokes
